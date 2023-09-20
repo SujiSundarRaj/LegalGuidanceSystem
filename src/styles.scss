@@ -1,0 +1,129 @@
+@use "./app/colors.scss";
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$legal-advisor-primary: mat.define-palette(mat.$indigo-palette);
+$legal-advisor-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$legal-advisor-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$legal-advisor-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $legal-advisor-primary,
+      accent: $legal-advisor-accent,
+      warn: $legal-advisor-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($legal-advisor-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0;
+  background: #fbfcfc;
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+.dropdown-menu {
+  margin-top: 2px;
+  //   width: calc(100% - 110px);
+  color: #202123;
+  border: 2px solid #ececf1;
+  .dropdown-item {
+    color: #40414f;
+    font-size: 16px;
+  }
+
+  .dropdown-item &.active {
+    background-color: transparent !important;
+    color: #40414f;
+  }
+
+  .dropdown-item:hover {
+    color: #fff;
+    //background-color: #202123;
+    background-color: colors.$common_background_color;
+  }
+}
+
+select option {
+  padding: 10px;
+  color: colors.$label !important;
+}
+option:hover {
+  padding: 10px;
+  color: #fff !important;
+  background-color: colors.$common_background_color !important;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+no-padding {
+  padding: 0px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+hr {
+  border-color: #8e8ea0;
+}
+label {
+  color: colors.$label !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.danger {
+  color: red;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";

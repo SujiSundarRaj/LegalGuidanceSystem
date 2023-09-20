@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="container" [formGroup]="myForm">
+    <div class="text-center">
+      <div class="page-title">Find a Solicitor</div>
+    </div>
+    <div class="search-container">
+      <div class="row">
+        <div class="col-lg-5">
+          <label for="username" class="control-label">Your legal issue</label>
+          <select
+            class="form-control select-box"
+            name="issue"
+            formControlName="selectedLegalIssue"
+          >
+            <ng-container *ngFor="let item of legalIssues">
+              <option class="dropdown-item" [value]="item.id">
+                {{ item.name }}
+              </option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="col-lg-5">
+          <label for="username" class="control-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="username"
+            placeholder="Post code, Town or City"
+            formControlName="location"
+            [typeahead]="searchBoxSource"
+            typeaheadOptionField="location"
+            [typeaheadItemTemplate]="customItemTemplate"
+            (typeaheadOnSelect)="typeaheadOnSelect($event)"
+          />
+        </div>
+        <div class="col-lg-2">
+          <button
+            class="btn btn-primary"
+            name="search"
+            value="search"
+            (click)="search()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #customItemTemplate let-model="item">
+    <span>{{ model.location }}</span>
+  </ng-template>
+
+  <div class="note">
+    "Find a Solicitor" is a free service that offers information about regulated
+    legal service providers in England and Wales. We provide a user-friendly
+    search tool based on data from the Solicitors Regulation Authority (SRA).
+  </div>
+</div>

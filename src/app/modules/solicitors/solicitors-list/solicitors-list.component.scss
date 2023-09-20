@@ -1,0 +1,175 @@
+@use "../../../colors.scss";
+
+.container-fluid {
+  padding: 15px 30px;
+
+  .container {
+    margin-top: 10px;
+  }
+b{
+ color: #333333;
+}
+  .soli-details {
+    background-color: #fff;
+    color: colors.$text-primary;
+    padding: 30px;
+    box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+  }
+  .sra-sec {
+    display: flex;
+    flex-direction: row;
+  }
+  .add-padding {
+    padding-left: 10px;
+  }
+  .btm-ptd {
+    padding-bottom: 10px;
+  }
+  .filter-container {
+    justify-content: center;
+    background: white;
+    padding: 15px;
+    border: 1px solid colors.$medium_border;
+    box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+    margin-top: 50px;
+    label {
+      
+      color: colors.$text-primary;
+      padding-bottom: 5px;
+      padding-top: 10px;
+    }
+    input:focus,
+    select:focus {
+      box-shadow: none;
+      border: 2px solid colors.$medium_border;
+      font-size: 14px !important;
+      color: colors.$label;
+    }
+    select{
+      font-size: 14px;
+      color: colors.$label;
+    }
+    select option:hover {
+      padding: 10px !important;
+      color: #fff;
+      background-color: red !important; /* Replace with your desired background color */
+    }
+
+    input::placeholder {
+      color: colors.$text-tretory;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 30px;
+      top: 5px;
+      right: 5px;
+      height: 40px;
+      width: 45%;
+    }
+
+    .button-container {
+      text-align: right;
+    }
+
+    .filter-btn {
+      color: colors.$button_text;
+      background: colors.$primary_button;
+      font-size: 18px;
+      border-color: black;
+      padding: 6px 10px;
+      margin-top: 15px;
+      margin-left: 20px;
+    }
+
+    .filter-btn:hover {
+      background: colors.$hover_button;
+      color: colors.$hover_text;
+    }
+    .clear-filter {
+      color: colors.$secondary_button_text;
+      background: colors.$secondar_button;
+      border-color: colors.$secondar_button_border;
+      font-size: 18px;
+      padding: 6px 10px;
+      margin-top: 15px;
+    }
+
+    .clear-filter:hover {
+      background: colors.$secondary_hover_button;
+      color: colors.$secondary_hover_text;
+      border-color: colors.$secondar_button_border;
+    }
+  }
+
+  .pagination-container {
+    margin: 30px auto;
+    text-align: center;
+  }
+  .pagination {
+    position: relative;
+    justify-content: center;
+    a {
+      position: relative;
+      display: inline-block;
+      color: colors.$text-primary;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px 10px;
+      cursor: pointer;
+    }
+    a &:before {
+      z-index: -1;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      content: "";
+      top: 0;
+      left: 0;
+
+      transform: scale(0);
+      transition: all 0.2s;
+    }
+    &:hover,
+    .pagination-active {
+      color: colors.$button_text;
+      &:before {
+        transform: scale(1);
+      }
+    }
+    .pagination-active {
+      font-weight: 600;
+      color: colors.$button_text;
+      background: colors.$primary_button;
+      border-radius: 24px;
+      &:before {
+        transform: scale(1);
+      }
+    }
+  }
+  .pagination-newer {
+    margin-right: 50px;
+  }
+  .pagination-older {
+    margin-left: 50px;
+  }
+  .acc-img {
+    padding-right: 20px;
+  }
+  .contact-img {
+    padding-right: 6px;
+  }
+  a {
+    color: #333333;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .no-padding {
+    padding: 0px;
+  }
+}
+option:hover{
+  padding: 10px;
+  color: #fff !important;
+  background-color: colors.$common_background_color !important;
+}

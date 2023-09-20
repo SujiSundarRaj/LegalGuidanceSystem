@@ -1,0 +1,153 @@
+<div class="container">
+  <div>
+    <h1>Free Question and Answer</h1>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+      <app-qna-search></app-qna-search>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
+      <!-- <div class="count-det">
+        About 20,300 results within Bankruptcy and debt
+      </div> -->
+      <div
+        class="container-fluid"
+        *ngIf="showSavedQna$ | async as showSavedQna"
+      >
+        <div class="row" *ngIf="loggedIn">
+          <div class="col-12 save-btn-col">
+            <button
+              class="btn btn-primary"
+              name="search"
+              value="search"
+              (click)="showSavedQnaForTheUser(showSavedQna)"
+            >
+              {{ showSavedQna === "saved" ? "Show All" : "Show saved" }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="qnaList$ | async as qnaList">
+        <div
+          class="soli-details"
+          *ngFor="let qnaData of qnaList; let i = index"
+        >
+          <div class="row qa-head">
+            <div class="col-lg-12">
+              <div class="row">
+                <div class="col-lg-10 gray-clr">
+                  Asked in {{ qnaData.location }} |
+                  {{ qnaData.date | formatDate }}
+                </div>
+                <div
+                  class="col-lg-2 save-lnk"
+                  *ngIf="currentUser$ | async as user"
+                >
+                  <a
+                    *ngIf="!isSaved(user, qnaData) && loggedIn"
+                    (click)="saveQna(user, qnaData)"
+                  >
+                    <b>Save </b></a
+                  >
+                  <a
+                    *ngIf="isSaved(user, qnaData) && loggedIn"
+                    (click)="unsaveQna(user, qnaData)"
+                  >
+                    <b>Unsave </b></a
+                  >
+                </div>
+              </div>
+              <hr />
+            </div>
+            <div class="col-lg-12">
+              <h4>{{ qnaData.question }}</h4>
+              <div>
+                <span>{{ qnaData.explanation }}</span>
+                <!-- <a>Read More</a> -->
+              </div>
+              <div class="read-lnk">
+                <a> {{ qnaData.answers.length }} Solicitor answers</a>
+                <i
+                  class="bi bi-chevron-right"
+                  (click)="qnaData.showAnswers = !qnaData.showAnswers"
+                ></i>
+              </div>
+              <ng-container *ngIf="qnaData.showAnswers === true">
+                <div
+                  class="row answer-container"
+                  *ngFor="let ansData of qnaData.answers"
+                >
+                  <!-- <div class="gray-clr">Posted 23 hours ago</div> -->
+                  <div class="gray-clr">
+                    Posted on
+                    <span>{{ ansData.date_posted | formatDate }}</span>
+                  </div>
+                  <div class="answer-sec">
+                    <span>{{ ansData.answer_text }}</span>
+                    <!-- <a>Read More</a> -->
+                  </div>
+                  <hr />
+                  <div class="row gray-clr">
+                    <div class="col-lg-4">{{ ansData.author }}</div>
+                    <!-- <div class="col-lg-4">Number</div> -->
+                    <div class="col-lg-4">{{ ansData.private_message }}</div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- <div>
+        <nav class="pagination-container">
+          <div class="pagination">
+            <a class="pagination-newer" href="#">PREV</a>
+            <span class="pagination-inner">
+              <a href="#">1</a>
+              <a class="pagination-active" href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">6</a>
+            </span>
+            <a class="pagination-older" href="#">NEXT</a>
+          </div>
+        </nav>
+      </div> -->
+    </div>
+
+    <div class="col-lg-3">
+      <div class="ask-container">
+        <button
+          class="btn btn-primary ask-que"
+          name="search"
+          value="search"
+          (click)="askQuestion()"
+        >
+          Ask your own legal question, it's free
+        </button>
+      </div>
+      <div class="related-container">
+        <h5>Related topics</h5>
+        <div class="row">
+          <div class="col-lg-12 related-list">
+            <a>Protection Notice Order</a>
+          </div>
+          <div class="col-lg-12 related-list">
+            <a>Protection Notice Order</a>
+          </div>
+          <div class="col-lg-12 related-list">
+            <a>Protection Notice Order</a>
+          </div>
+          <div class="col-lg-12 related-list">
+            <a>Protection Notice Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

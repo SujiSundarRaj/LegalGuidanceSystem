@@ -1,0 +1,62 @@
+@use "../../../colors.scss";
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  .search-container {
+    justify-content: center;
+    background: white;
+    padding: 15px 30px;
+    border: 1px solid colors.$medium_border;
+    box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+    border-radius: 6px;
+
+    label {
+      padding-bottom: 10px;
+      font-size: 16px;
+      color: colors.$text-primary;
+    }
+
+    input,
+    select {
+      height: 40px;
+      border: 2px solid colors.$medium_border;
+      color: colors.$text-primary;
+      font-size: 14px;
+      font-family: sans-serif;
+    }
+
+    input:focus,
+    select:focus {
+      box-shadow: none;
+      border: 2px solid colors.$medium_border;
+    }
+
+    input::placeholder {
+      color: colors.$text-tretory;
+      font-size: 16px;
+    }
+
+    button {
+      top: 5px;
+      right: 5px;
+      height: 40px;
+      width: 110px;
+      background: colors.$primary_button;
+      border: 1px solid colors.$primary_button;
+    }
+    button:hover {
+      background: colors.$hover_button;
+      color: colors.$hover_text;
+    }
+    .advance-search {
+      margin-top: 25px;
+      text-align: end;
+      color: colors.$primary_button !important;
+      text-decoration: none !important;
+    }
+  }
+  .no-padding {
+    padding: 0px !important;
+  }
+}

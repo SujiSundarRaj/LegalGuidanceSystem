@@ -1,0 +1,140 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left"><h3>Free Q&A with solicitor</h3></h4>
+  <button
+    type="button"
+    class="btn-close close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true" class="visually-hidden">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="contact-form">
+    <form>
+      <div class="row">
+        <div class="col-lg-12 related-container">
+          <h5>Tips for asking questions</h5>
+          <ul>
+            <li>
+              <b>Include Essential Details:</b> Share pertinent information, but
+              avoid overloading with unnecessary details.
+            </li>
+            <li>
+              <b>Be Concise:</b> Craft your question to the point, avoiding
+              unnecessary elaboration.
+            </li>
+            <li>
+              <b>Follow Up:</b> If needed, ask follow-up questions to gain a
+              complete understanding of your options.
+            </li>
+            <li>
+              <b>Respectful Language:</b> Frame your questions in a respectful
+              and courteous manner, fostering positive communication.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" [formGroup]="myForm">
+        <div class="col-lg-12">
+          <label for="forquestion" class="control-label"
+            >Ask Your Question <span class="danger">*</span></label
+          >
+          <textarea
+            rows="2"
+            class="form-control"
+            placeholder="Enter your Question"
+            id="your-message1"
+            formControlName="question"
+          ></textarea>
+          <span
+            id="message-requred1"
+            *ngIf="
+              myForm.get('question')?.touched && myForm.get('question')?.invalid
+            "
+            class="danger"
+            >Required Field</span
+          >
+        </div>
+        <div class="col-lg-12">
+          <label for="forexplainquestion" class="control-label"
+            >Explain your situation <span class="danger">*</span></label
+          >
+          <textarea
+            rows="5"
+            class="form-control"
+            placeholder="Explain your situation"
+            id="your-message2"
+            formControlName="explanation"
+          ></textarea>
+          <span
+            id="message-requred2"
+            *ngIf="
+              myForm.get('explanation')?.touched &&
+              myForm.get('explanation')?.invalid
+            "
+            class="danger"
+            >Required Field</span
+          >
+        </div>
+        <div class="col-lg-12">
+          <label for="location" class="control-label"
+            >City and Town <span class="danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Example: Blurton, Stoke-On-Trent"
+            id="your-subject3"
+            formControlName="cityAndTown"
+          />
+          <span
+            id="subjectRequred3"
+            *ngIf="
+              myForm.get('cityAndTown')?.touched &&
+              myForm.get('cityAndTown')?.invalid
+            "
+            class="danger"
+            >Required Field</span
+          >
+        </div>
+        <div class="col-lg-12">
+          <label for="solictor" class="control-label"
+            >Do you Plan to hire a solicitor
+            <span class="danger">*</span></label
+          >
+          <select
+            class="form-control"
+            name="Domestic Voilence"
+            formControlName="requiredSolicitor"
+          >
+            <option value="yes">Yes</option>
+            <option value="notSure">Not Sure</option>
+            <option value="no">No</option>
+          </select>
+          <span
+            id="subjectRequred"
+            *ngIf="
+              myForm.get('requiredSolicitor')?.touched &&
+              myForm.get('requiredSolicitor')?.invalid
+            "
+            class="danger"
+            >Required Field</span
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
+    {{ closeBtnName }}
+  </button>
+  <button
+    class="btn btn-primary contact-button"
+    (click)="postQuestion()"
+    [disabled]="myForm.invalid"
+  >
+    Submit
+  </button>
+</div>

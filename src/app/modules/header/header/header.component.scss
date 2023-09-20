@@ -1,0 +1,98 @@
+@use "../../../colors.scss";
+
+.header-container {
+  position: fixed;
+  top: 0px;
+  background: colors.$common_background_color;
+  color: colors.$common_color;
+  height: 65px;
+  width: 100%;
+  padding: 0px 12px;
+  display: flex;
+  z-index: 100;
+  box-shadow: -3px -3px 7px #ffffff, 2px 2px 5px rgba(94, 104, 121, 0.288);
+
+  .logo {
+    margin: 12px 20px;
+    width: 200px;
+    font-size: 23px;
+    font-family: sans-serif;
+
+    img {
+      width: 70%;
+      cursor: pointer;
+    }
+  }
+
+  .tab {
+    width: auto;
+    cursor: pointer;
+    margin-right: 40px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 1px;
+
+    a {
+      font-size: 18px;
+      font-family: sans-serif;
+      text-decoration: none;
+    }
+
+    &.selected {
+      color: colors.$secondary_color !important;
+      font-weight: 600;
+      border-bottom: 5px solid colors.$secondary_color;
+    }
+
+    a:hover {
+      color: colors.$secondary_color;
+      padding: 0px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+  }
+
+  .login-button {
+    background-color: colors.$common_color;
+    color: colors.$text-seconday;
+    margin-top: 15px;
+  }
+
+  .user-icon {
+    position: absolute;
+    right: 25px;
+    top: 6px;
+    cursor: pointer;
+    .bi-person-circle {
+      font-size: 32px;
+    }
+    .user-icon-container {
+      width: 200px;
+      height: auto;
+      background: colors.$common_background_color;
+      color: colors.$common_color;
+      position: absolute;
+      right: 0;
+      z-index: 500;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      .user-info-row {
+        border-bottom: 0.5px solid colors.$common_color;
+        .item {
+          text-align: center;
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+      }
+      .row:hover {
+        background-color: rgb(96, 94, 94);
+      }
+      .item {
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: 500;
+        padding: 5px 0px;
+        cursor: pointer;
+      }
+    }
+  }
+}

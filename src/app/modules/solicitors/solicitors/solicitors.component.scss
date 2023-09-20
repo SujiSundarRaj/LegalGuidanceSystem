@@ -1,0 +1,81 @@
+@use '../../../colors.scss';
+
+.container-fluid {
+  padding: 15px 35px;
+
+  .container {
+    margin-top: 45px;
+  }
+
+  .search-container {
+    margin: 2% 10%;
+    justify-content: center;
+    background: white;
+    padding: 35px;
+    width: 80%;
+    border: 2px solid colors.$medium_border;
+    box-shadow: 0 0 40px rgba(51, 51, 51, 0.1);
+
+    label {
+      
+      padding-bottom: 10px;
+      font-size: 16px;
+      color: colors.$text-primary;
+    }
+
+    input,
+    select {
+      height: 40px;
+      border: 2px solid colors.$medium_border;
+      color: colors.$text-primary;
+      font-size: 14px;
+      font-family: sans-serif;
+    }
+
+    input:focus,
+    select:focus {
+      box-shadow: none;
+      border: 2px solid colors.$medium_border;
+    }
+
+    input::placeholder {
+      color: colors.$text-tretory;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 30px;
+      top: 0px;
+      right: 5px;
+      height: 40px;
+      width: 110px;
+      border-color: black;
+      color: colors.$button_text;
+      background: colors.$primary_button;
+    }
+
+    button:hover {
+      background: colors.$hover_button;
+      color: colors.$hover_text;
+    }
+  }
+
+  .page-title {
+    color: colors.$text-primary;
+    font-size: 36px;
+    font-family: sans-serif;
+  }
+}
+.note {
+  margin: 0% 10%;
+  font-size: 14px;
+  font-family: sans-serif;
+  color: colors.$text-seconday;
+  width: 80%;
+  text-align: center;
+}
+::ng-deep.search-container {
+  .dropdown-menu {
+    width: 385px;
+  }
+}

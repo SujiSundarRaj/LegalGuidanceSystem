@@ -1,0 +1,26 @@
+<div class="acc-container">
+  <accordion *ngIf="searchedList.length > 0">
+    <accordion-group
+      class="search-result-accordian"
+      [panelClass]="'search-result-panel'"
+      *ngFor="let searched of searchedList"
+      [isOpen]="searched.index === searchedContent?.index"
+      (isOpenChange)="isOpen($event, searched.index)"
+    >
+      <button
+        class="btn btn-link btn-block acc-button"
+        accordion-heading
+        type="button"
+      >
+        <div class="pull-left float-left">{{ searched.qn }}</div>
+        <span *ngIf="searched.isExpanded">
+          <i class="bi bi-arrow-up-circle"></i>
+        </span>
+        <span *ngIf="!searched.isExpanded">
+          <i class="bi bi-arrow-down-circle"></i>
+        </span>
+      </button>
+      {{ searched?.an }}
+    </accordion-group>
+  </accordion>
+</div>

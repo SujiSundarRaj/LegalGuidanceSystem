@@ -1,0 +1,212 @@
+@use "../../../colors.scss";
+
+.container-fluid {
+  padding: 15px 35px;
+  .search-box-container {
+    margin-top: 45px;
+
+    &.with-search-results {
+      margin-top: 20px;
+
+      .search-column {
+        margin: 0px;
+        width: 100%;
+      }
+
+      .search-icon {
+        right: 385px !important;
+      }
+    }
+
+    .search-row {
+      margin: 30px 0px;
+
+      .search-column {
+        margin: auto;
+      }
+    }
+
+    .search {
+      position: relative;
+
+      .search-button {
+        position: absolute;
+        top: 0px;
+        width: 100px;
+        color: colors.$button_text;
+        background: colors.$primary_button;
+        right: 0px;
+        font-size: 18px;
+        border-color: black;
+        padding: 6px 10px;
+        margin-top: 2px;
+
+        &.with-clear-button {
+          right: 250px;
+        }
+      }
+      .search-button:hover {
+        background: colors.$hover_button;
+        color: colors.$hover_text;
+      }
+
+      .clear-search-button {
+        position: absolute;
+        top: 0px;
+        width: 230px;
+        color: colors.$secondary_button_text;
+        background: colors.$secondar_button;
+        right: 0px;
+        font-size: 18px;
+        border-color: colors.$secondar_button_border;
+        padding: 6px 10px;
+        margin-top: 2px;
+      }
+      .clear-search-button:hover {
+        background: colors.$secondary_hover_button;
+        color: colors.$secondary_hover_text;
+        border-color: colors.$secondar_button_border;
+      }
+
+      input {
+        height: 45px;
+        text-indent: 10px;
+        border: 2px solid colors.$medium_border;
+        width: calc(100% - 110px);
+        color: colors.$text-primary;
+        font-size: 16px;
+        font-family: sans-serif;
+
+        &.searched-input {
+          width: calc(100% - 370px);
+        }
+      }
+
+      input:focus {
+        box-shadow: none;
+        border: 2px solid colors.$medium_border;
+      }
+
+      input::placeholder {
+        color: colors.$text-tretory;
+        font-size: 16px;
+      }
+
+      .search-icon {
+        position: absolute;
+        right: 125px;
+        top: 12px;
+        cursor: pointer;
+
+        .search-img {
+          width: 20px;
+          height: 20px;
+          color: #d9d9e3;
+        }
+      }
+    }
+
+    .page-title {
+      color: colors.$text-primary;
+      font-size: 36px;
+      font-family: sans-serif;
+    }
+  }
+
+  .separation-line {
+    border-bottom: 1px solid #d9d9e3;
+    margin: 20px -30px;
+  }
+
+  .searched-content {
+    height: 60vh;
+    overflow-y: auto;
+    margin: 0px -30px;
+  }
+}
+
+::ng-deep.search-box-container {
+  .dropdown-menu {
+    width: calc(100% - 110px);
+  }
+}
+.browse-title {
+  color: colors.$sub_heading;
+  font-size: 24px;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+.browse-item {
+  color: colors.$medium_heading;
+  font-size: 16px;
+  font-family: sans-serif;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 10px;
+  cursor: pointer;
+
+  a:hover {
+    color: colors.$text-primary;
+    font-weight: 600;
+  }
+}
+.topic {
+  cursor: pointer;
+}
+.related-container {
+  justify-content: center;
+  background: white;
+  padding: 10px;
+  margin-left: 30px;
+  border: 1px solid #d6d4d4;
+  box-shadow: 2px 2px 5px rgba(94, 104, 121, 0.288);
+  border-radius: 6px;
+  a {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 1em;
+    display: inline;
+    font-size: 0.875em;
+    left: -0.15em;
+    line-height: 2.5;
+    padding: 0.5em 1em;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    color: colors.$text-seconday;
+    text-decoration: none;
+  }
+  a:hover {
+    color: colors.$text-primary;
+    font-weight: 600;
+  }
+}
+.related-list {
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+/* set panel-heading paddings to a instead of h3 */
+.panel-heading {
+  padding: 0;
+}
+.panel-heading h3 {
+  background: #bbf;
+}
+.panel-heading a {
+  padding: 10px 15px;
+}
+
+/* change color of collapsed class */
+.collapsed {
+  background: #fbb;
+}
+
+/* reposition the left arrows */
+.panel-heading .accordion-toggle.collapsed:after {
+  top: 10px;
+}
+.panel-heading .accordion-toggle:after {
+  top: 10px;
+}

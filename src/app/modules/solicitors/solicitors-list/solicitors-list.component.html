@@ -1,0 +1,189 @@
+<div class="container-fluid">
+  <!-- <div class="container" > -->
+  <div class="row">
+    <div class="col-lg-9">
+      <ng-container *ngIf="solicitorsList[currentPage] as solicitor">
+        <div class="solicitor-header">
+          <h2>
+            {{ solicitor.address.town }}
+            <span *ngIf="solicitor.legalIssueCategory.child !== ''">
+              , {{ solicitor.legalIssueCategory.child }} Solicitors</span
+            >
+          </h2>
+          <div>
+            <p>
+              {{ solicitorsList.length }} solicitor are available in the
+              {{ solicitor.address.town }}, area.
+            </p>
+
+            <p>
+              Compare the best solicitors near you and make informed decisions
+              based on profile details.
+            </p>
+          </div>
+        </div>
+        <div class="soli-details">
+          <div class="btm-ptd">
+            <h3>{{ solicitor.title }}</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-9">
+              <div class="sra-sec btm-ptd">
+                <div>
+                  <b>Years Lisenced: </b>
+                  {{ yearsLicensed(solicitor.AuthorisationDate) }}
+                </div>
+                <div class="add-padding">
+                  <b>SRA ID: </b> {{ solicitor.SRAID }} | SRA Regulated
+                </div>
+              </div>
+              <div class="btm-ptd">
+                <b>Address:</b> {{ solicitor.address.buliding }},
+                {{ solicitor.address.town }}, {{ solicitor.address.postcode }},
+                {{ solicitor.address.country }}
+              </div>
+              <div class="btm-ptd"><b>Accreditations:</b></div>
+              <div class="">
+                <ng-container *ngFor="let acc of solicitor.accreditations">
+                  <img
+                    class="acc-img btm-ptd"
+                    [src]="'../../../../assets/image/' + acc.id + '.png'"
+                  />
+                </ng-container>
+              </div>
+              <div>
+                This organisation has <b> {{ solicitor.branch }}</b> offices
+                There are <b>{{ solicitor.solicitors }}</b> solicitors at this
+                organisation
+              </div>
+            </div>
+            <div class="col-lg-3 no-padding">
+              <div class="btm-ptd">
+                <img
+                  class="contact-img"
+                  [src]="'../../../../assets/svg/telephone.svg'"
+                />
+                <a>{{ solicitor.Tel }}</a>
+              </div>
+              <div class="btm-ptd">
+                <img
+                  class="contact-img"
+                  [src]="'../../../../assets/svg/box-arrow-up-right.svg'"
+                />
+                <a
+                  ><span class="glyphicon glyphicon-floppy-open">WebSite</span>
+                </a>
+              </div>
+              <div class="btm-ptd">
+                <img
+                  class="contact-img"
+                  [src]="'../../../../assets/svg/envelope.svg'"
+                />
+                <a>{{ solicitor.email }}</a>
+              </div>
+              <div class="btm-ptd">
+                <img
+                  class="contact-img"
+                  [src]="'../../../../assets/svg/geo-alt.svg'"
+                />
+                <!-- <a
+                  href="https://www.google.co.uk/maps?q={{
+                    solicitor.address.postcode
+                  }}"
+                  >View Map 
+                </a>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <nav class="pagination-container">
+            <div class="pagination">
+              <a class="pagination-newer" (click)="prev()">PREV</a>
+              <span class="pagination-inner">
+                <ng-container
+                  *ngFor="let item of solicitorsList; let i = index"
+                >
+                  <a
+                    [class.pagination-active]="i === currentPage"
+                    (click)="setPageNo(i)"
+                    >{{ i + 1 }}</a
+                  >
+                </ng-container>
+              </span>
+              <a class="pagination-older" (click)="next()">NEXT</a>
+            </div>
+          </nav>
+        </div>
+      </ng-container>
+    </div>
+    <div class="col-lg-3">
+      <div class="filter-container" [formGroup]="myForm">
+        <div>
+          <label for="title" class="control-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="organization Name"
+            formControlName="title"
+          />
+        </div>
+        <div>
+          <label for="accreditations" class="control-label"
+            >Accreditations</label
+          >
+          <select class="form-control" formControlName="accrediations">
+            <ng-container *ngFor="let acc of accList">
+              <option [value]="acc.id">{{ acc.txt }}</option>
+            </ng-container>
+
+            <!-- <option *ngFor="let area of allAreas" [value]="area">{{ area }}</option> -->
+          </select>
+        </div>
+        <div>
+          <label class="control-label">Years Licensed</label>
+          <input
+            type="number"
+            class="form-control"
+            id="yearsLicensed"
+            name="yearsLicensed"
+            placeholder="Enter no of years"
+            formControlName="yearsLicensed"
+          />
+        </div>
+        <div>
+          <label for="sraid" class="control-label">SRA ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="sraid"
+            name="sraid"
+            placeholder="Enter SRA ID"
+            formControlName="sraId"
+          />
+        </div>
+        <div class="button-container">
+          <button
+            class="btn btn-secondary clear-filter"
+            name="search"
+            value="search"
+            (click)="reset()"
+          >
+            Reset
+          </button>
+          <button
+            class="btn btn-primary filter-btn"
+            name="search"
+            value="search"
+            (click)="apply()"
+          >
+            Apply
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

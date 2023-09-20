@@ -1,0 +1,26 @@
+.login-container {
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  background: #fff;
+  padding: 20px;
+  width: 350px;
+  display: block;
+  margin: 12% auto;
+  .form-group {
+    margin-top: 10px;
+  }
+}
+
+.login-btn {
+  width: 45%;
+  font-size: 21px;
+  margin-left: 5%;
+}
+.register-btn {
+  width: 45%;
+  font-size: 21px;
+  margin-right: 5%;
+}
+
+.action-btn-row {
+  margin-top: 30px !important;
+}

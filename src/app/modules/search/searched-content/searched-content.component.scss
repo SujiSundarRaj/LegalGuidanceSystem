@@ -1,0 +1,50 @@
+@use "../../../colors.scss";
+.acc-container {
+  padding: 0px 30px;
+}
+.search-result-accordian {
+  margin-bottom: 20px;
+}
+
+.bi-arrow-up-circle,
+.bi-arrow-down-circle {
+  font-size: 18px;
+}
+
+::ng-deep.search-result-panel {
+  .card-header {
+    background: colors.$common_background_color;
+  }
+  .panel-title {
+    .btn-link {
+      color: colors.$common_color;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: sans-serif;
+      text-decoration: none;
+    }
+  }
+  .panel-body {
+    color: colors.$text-primary;
+    font-size: 14px;
+    font-family: sans-serif;
+    padding: 10px 30px;
+  }
+  span {
+    position: absolute;
+    right: 20px;
+    img {
+      background-image: url("../../../../assets/svg/arrow-up-circle.svg")
+        no-repeat;
+      font-size: 16px;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  .acc-button {
+    width: 100%;
+    text-align: left;
+    display: flex;
+  }
+}

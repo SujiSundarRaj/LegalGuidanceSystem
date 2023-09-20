@@ -1,0 +1,64 @@
+<div class="header-container">
+  <div class="logo" (click)="routeToSearch()">
+    <img src="../../../../assets/image/logo.png" />
+  </div>
+  <ng-container>
+    <div
+      class="tab"
+      [class.selected]="selectedTabIndex === 0"
+      (click)="routeToSearch()"
+    >
+      <a>Search</a>
+    </div>
+    <div
+      class="tab"
+      [class.selected]="selectedTabIndex === 1"
+      (click)="routeToSolicitor()"
+    >
+      <a>Find a Solicitor</a>
+    </div>
+    <div
+      class="tab"
+      [class.selected]="selectedTabIndex === 2"
+      (click)="routeToQNA()"
+    >
+      <a>Free Question & Answer</a>
+    </div>
+
+    <div class="user-icon">
+      <i
+        class="bi bi-person-circle"
+        (click)="showUserIconContainer = !showUserIconContainer"
+      ></i>
+      <div class="user-icon-container" *ngIf="showUserIconContainer">
+        <div class="container-fluid">
+          <div class="row user-info-row" *ngIf="userInfo$ | async as user">
+            <div class="col-12">
+              <div class="item">{{ user.firstName }} {{ user.lastName }}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="item" (click)="routeToQnaSaved()">
+                Saved questions
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="userInfo$ | async as user; else lg">
+            <div class="col-12">
+              <div class="item" (click)="logout()">Logout</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<ng-template #lg>
+  <div class="row">
+    <div class="col-12">
+      <div class="item" (click)="routeToLogin()">Login</div>
+    </div>
+  </div>
+</ng-template>

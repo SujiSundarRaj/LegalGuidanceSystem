@@ -1,0 +1,195 @@
+<div class="container">
+  <div class="login-container">
+    <ng-container *ngIf="showLogin" [formGroup]="loginForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="label">
+            <h3>Login</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="showErrorMsg">
+        <div class="col-12 danger">Username or Password is incorrect</div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              id="Username"
+              class="form-control"
+              formControlName="username"
+            />
+            <span
+              id="message-requred1"
+              *ngIf="
+                loginForm.get('username')?.touched &&
+                loginForm.get('username')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Password</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span
+              id="message-requred2"
+              *ngIf="
+                loginForm.get('password')?.touched &&
+                loginForm.get('password')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row action-btn-row">
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-secondary register-btn"
+            (click)="register()"
+          >
+            New User
+          </button>
+          <button
+            type="submit"
+            class="btn btn-secondary login-btn"
+            [disabled]="loginForm.invalid"
+            (click)="login()"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!showLogin" [formGroup]="registerForm">
+      <div class="row">
+        <div class="col-12">
+          <div class="label">
+            <h3>New User</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>First Name</label>
+            <input
+              type="text"
+              id="FirstName"
+              class="form-control"
+              formControlName="firstName"
+            />
+            <span
+              id="message-requred1"
+              *ngIf="
+                registerForm.get('firstName')?.touched &&
+                registerForm.get('firstName')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              id="Lastname"
+              class="form-control"
+              formControlName="lastName"
+            />
+            <span
+              id="message-requred2"
+              *ngIf="
+                registerForm.get('lastName')?.touched &&
+                registerForm.get('lastName')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Email id*</label>
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              formControlName="email"
+            />
+            <span
+              id="message-requred3"
+              *ngIf="
+                registerForm.get('email')?.touched &&
+                registerForm.get('email')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="form-group">
+            <label>Password*</label>
+            <input
+              type="password"
+              id="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <span
+              id="message-requred4"
+              *ngIf="
+                registerForm.get('password')?.touched &&
+                registerForm.get('password')?.invalid
+              "
+              class="danger"
+              >Required Field</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row action-btn-row">
+        <div class="col-12">
+          <button
+            type="submit"
+            class="btn btn-secondary register-btn"
+            (click)="cancel()"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="btn btn-secondary login-btn"
+            [disabled]="registerForm.invalid"
+            (click)="registerUser()"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
