@@ -26,9 +26,15 @@
 }
 
 .read-lnk {
+  font-weight: 500;
   text-decoration: none;
-  color: colors.$text-primary;
+  color: colors.$text_link;
+  cursor: pointer;
   padding: 10px 0px;
+
+  a:hover{
+    color: colors.$primary_button;
+  }
 }
 
 .save-btn-col {
@@ -136,7 +142,7 @@
   height: 65px;
   color: colors.$button_text;
   background: colors.$primary_button;
-  border: 1px solid colors.$primary_button;
+  // border: 1px solid colors.$primary_button;
   margin-right: 10px;
 }
 .ask-que:hover {

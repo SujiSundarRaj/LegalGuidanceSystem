@@ -12,8 +12,9 @@
 }
 
 ::ng-deep.search-result-panel {
+
   .card-header {
-    background: colors.$common_background_color;
+    background: #E1ECF4;
   }
   .panel-title {
     .btn-link {
@@ -25,6 +26,7 @@
     }
   }
   .panel-body {
+    background: #fff;
     color: colors.$text-primary;
     font-size: 14px;
     font-family: sans-serif;

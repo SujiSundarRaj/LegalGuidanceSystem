@@ -39,7 +39,7 @@ $legal-advisor-theme: mat.define-light-theme(
 
 body {
   margin: 0;
-  background: #fbfcfc;
+  background: #F9F9F9;
   font-size: 14px;
   font-family: sans-serif;
 }
@@ -47,22 +47,22 @@ body {
 .dropdown-menu {
   margin-top: 2px;
   //   width: calc(100% - 110px);
-  color: #202123;
-  border: 2px solid #ececf1;
+  color: #333333;
+  border: 2px solid #d4d4d4;
   .dropdown-item {
-    color: #40414f;
+    color: #333333;
     font-size: 16px;
   }
 
   .dropdown-item &.active {
     background-color: transparent !important;
-    color: #40414f;
+    color: #333333;
   }
 
   .dropdown-item:hover {
-    color: #fff;
+    color: #ffffff;
     //background-color: #202123;
-    background-color: colors.$common_background_color;
+    background-color: #0074CC;
   }
 }
 

@@ -37,7 +37,6 @@
         background: colors.$primary_button;
         right: 0px;
         font-size: 18px;
-        border-color: black;
         padding: 6px 10px;
         margin-top: 2px;
 
@@ -137,7 +136,7 @@
   margin-bottom: 20px;
 }
 .browse-item {
-  color: colors.$medium_heading;
+  color: colors.$text_link;
   font-size: 16px;
   font-family: sans-serif;
   overflow-wrap: break-word;
@@ -149,7 +148,7 @@
   cursor: pointer;
 
   a:hover {
-    color: colors.$text-primary;
+    color: colors.$primary_button;
     font-weight: 600;
   }
 }

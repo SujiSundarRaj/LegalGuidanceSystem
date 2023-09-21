@@ -7,17 +7,22 @@
   width: 100%;
   text-align: center;
   padding: 10px;
-  background: #fbfcfc;
+  background: colors.$common_color;
 }
 .footer-content{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 0% 35%;
-  color: #8e8ea0;
+  color: #d4d4d4;
   padding-bottom: 5px;
   a{
-    color: colors.$text-primary;
+   color: #d4d4d4;
     text-decoration: none;
+  }
+  a:hover{
+    color: colors.$button_text;
+    font-weight: 500;
+    
   }
 }
