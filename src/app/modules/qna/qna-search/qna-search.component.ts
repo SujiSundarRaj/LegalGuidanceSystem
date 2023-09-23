@@ -12,12 +12,13 @@ export class QnaSearchComponent {
   qnaSearchForm: FormGroup;
   @Output() triggerSearch = new EventEmitter<string>();
   @Output() filterByCategory = new EventEmitter<number>();
+  @Output() clearRelatedTopic = new EventEmitter();
   lawAreaData = LAWAREA_DATA.sort((a, b) => a.name.localeCompare(b.name));
   category: Topic[] = [];
   constructor(private fb: FormBuilder) {
     this.qnaSearchForm = this.fb.group({
       seachBoxControl: [],
-      seachByCategory: [],
+      seachByCategory: [''],
     });
     this.category = this.setCategory();
   }
@@ -32,8 +33,10 @@ export class QnaSearchComponent {
   }
   clearSearch() {
     this.qnaSearchForm.reset();
+    this.qnaSearchForm.get('seachByCategory')?.setValue('');
     this.triggerSearch.emit(this.qnaSearchForm.value.seachBoxControl);
     this.filterByCategory.emit(this.qnaSearchForm.value.seachByCategory);
+    this.clearRelatedTopic.emit();
   }
 
   setCategory() {

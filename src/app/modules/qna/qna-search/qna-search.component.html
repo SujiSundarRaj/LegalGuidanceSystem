@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-4 no-padding">
         <select class="form-control" formControlName="seachByCategory">
+          <option value="" disabled selected>Search by category</option>
           <ng-container *ngFor="let item of category">
             <option class="dropdown-item" [value]="item.id">
               {{ item.name }}

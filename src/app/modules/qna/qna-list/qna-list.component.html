@@ -7,7 +7,20 @@
       <app-qna-search
         (triggerSearch)="filterQnaList($event)"
         (filterByCategory)="filterByCategory($event)"
+        (clearRelatedTopic)="clearRelatedTopic()"
       ></app-qna-search>
+    </div>
+    <div class="col-3">
+      <div class="ask-container">
+        <button
+          class="btn btn-primary ask-que"
+          name="search"
+          value="search"
+          (click)="askQuestion()"
+        >
+          Ask your own legal question, it's free
+        </button>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -124,31 +137,14 @@
     </div>
 
     <div class="col-lg-3">
-      <div class="ask-container">
-        <button
-          class="btn btn-primary ask-que"
-          name="search"
-          value="search"
-          (click)="askQuestion()"
-        >
-          Ask your own legal question, it's free
-        </button>
-      </div>
       <div class="related-container">
         <h5>Related topics</h5>
-        <div class="row">
-          <div class="col-lg-12 related-list">
-            <a>Protection Notice Order</a>
-          </div>
-          <div class="col-lg-12 related-list">
-            <a>Protection Notice Order</a>
-          </div>
-          <div class="col-lg-12 related-list">
-            <a>Protection Notice Order</a>
-          </div>
-          <div class="col-lg-12 related-list">
-            <a>Protection Notice Order</a>
-          </div>
+        <div class="row" *ngFor="let topic of relatedTopics">
+          <ng-container>
+            <div class="col-lg-12 related-list">
+              <a (click)="filterByTopic(topic.id)">{{ topic.name }}</a>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>

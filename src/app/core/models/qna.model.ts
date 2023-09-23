@@ -8,6 +8,7 @@ export interface QnaModel {
   answers: Answer[];
   showAnswers?: boolean;
   category: Topic;
+  subCategory: Topic;
   id: number;
 }
 

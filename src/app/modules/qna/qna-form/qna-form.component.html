@@ -102,7 +102,11 @@
           <label for="solictor" class="control-label"
             >Select Category <span class="danger">*</span></label
           >
-          <select class="form-control" formControlName="category">
+          <select
+            class="form-control"
+            formControlName="category"
+            (change)="onCategoryChange()"
+          >
             <ng-container *ngFor="let item of categoryList">
               <option class="dropdown-item" [value]="item.id">
                 {{ item.name }}
@@ -113,6 +117,27 @@
             id="categoryRequired"
             *ngIf="
               myForm.get('category')?.touched && myForm.get('category')?.invalid
+            "
+            class="danger"
+            >Required Field</span
+          >
+        </div>
+        <div class="col-lg-12" *ngIf="myForm.value.category">
+          <label for="solictor" class="control-label"
+            >Select Sub Category <span class="danger">*</span></label
+          >
+          <select class="form-control" formControlName="subCategory">
+            <ng-container *ngFor="let item of subCategoryList">
+              <option class="dropdown-item" [value]="item.id">
+                {{ item.name }}
+              </option>
+            </ng-container>
+          </select>
+          <span
+            id="subCategoryRequired"
+            *ngIf="
+              myForm.get('subCategory')?.touched &&
+              myForm.get('subCategory')?.invalid
             "
             class="danger"
             >Required Field</span

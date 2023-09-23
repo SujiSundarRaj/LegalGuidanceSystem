@@ -17,6 +17,7 @@ export class QnaFormComponent {
   title?: string;
   closeBtnName?: string;
   categoryList: Topic[] = [];
+  subCategoryList: Topic[] = [];
   lawAreaData = LAWAREA_DATA.sort((a, b) => a.name.localeCompare(b.name));
   constructor(
     private readonly fb: FormBuilder,
@@ -29,6 +30,7 @@ export class QnaFormComponent {
       cityAndTown: [null, Validators.required],
       requiredSolicitor: [null, Validators.required],
       category: [null, Validators.required],
+      subCategory: [null, Validators.required],
     });
     this.categoryList = this.setCategory();
   }
@@ -44,6 +46,10 @@ export class QnaFormComponent {
         this.categoryList.find(
           (cat) => cat.id === Number(this.myForm.value.category)
         ) ?? this.categoryList[0],
+      subCategory:
+        this.subCategoryList.find(
+          (cat) => cat.id === Number(this.myForm.value.subCategory)
+        ) ?? this.subCategoryList[0],
     };
     this.qnaService.setQnaData(qnaData);
     this.bsModalRef.hide();
@@ -57,6 +63,16 @@ export class QnaFormComponent {
       };
       prev.push(category);
       return prev;
+    }, [] as Topic[]);
+  }
+
+  onCategoryChange() {
+    console.log('on change', this.myForm.value.category);
+    this.subCategoryList = this.lawAreaData.reduce((area, lawArea) => {
+      if (lawArea.id === Number(this.myForm.value.category)) {
+        area = area.concat(lawArea.areas as Topic[]);
+      }
+      return area;
     }, [] as Topic[]);
   }
 }

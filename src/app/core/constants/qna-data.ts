@@ -7,6 +7,7 @@ export const QNA_DATA = [
     date: '2023-08-30T00:00:00',
     location: 'Victoria Place, London',
     category: { id: 16, name: 'Domestic Voilence' },
+    subCategory: { id: 3, name: 'Domestic violence' },
     answers: [
       {
         answer_text:
@@ -33,6 +34,7 @@ export const QNA_DATA = [
     location: 'Stoke-on-Trent, Staffordshire',
     date: '2023-09-02T00:00:00',
     category: { id: 16, name: 'Domestic Voilence' },
+    subCategory: { id: 2, name: 'Protection notice order' },
     answers: [
       {
         answer_text:
