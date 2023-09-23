@@ -1,14 +1,24 @@
 <div class="container no-padding">
-  <div class="search-container">
+  <div class="search-container" [formGroup]="qnaSearchForm">
     <div class="row">
-            <div class="col-lg-10">
+      <div class="col-md-4 no-padding">
+        <select class="form-control" formControlName="seachByCategory">
+          <ng-container *ngFor="let item of category">
+            <option class="dropdown-item" [value]="item.id">
+              {{ item.name }}
+            </option>
+          </ng-container>
+        </select>
+      </div>
+      <div class="col-md-5">
         <input
           type="text"
           class="form-control"
           placeholder="Enter your search"
+          formControlName="seachBoxControl"
         />
       </div>
-      <div class="col-lg-2">
+      <div class="col-md-3">
         <button
           class="btn btn-primary"
           name="search"
@@ -16,6 +26,14 @@
           (click)="search()"
         >
           Search
+        </button>
+        <button
+          class="btn clear-search-button"
+          name="search"
+          value="search"
+          (click)="clearSearch()"
+        >
+          Clear Search
         </button>
       </div>
     </div>

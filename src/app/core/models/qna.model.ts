@@ -1,3 +1,5 @@
+import { Topic } from './search.model';
+
 export interface QnaModel {
   question: string;
   explanation: string;
@@ -5,6 +7,7 @@ export interface QnaModel {
   location: string;
   answers: Answer[];
   showAnswers?: boolean;
+  category: Topic;
   id: number;
 }
 

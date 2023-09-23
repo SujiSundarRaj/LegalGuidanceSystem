@@ -6,7 +6,7 @@ export const QNA_DATA = [
       "An ex-boyfriend has been leaving threatening voicemails on my mom's cellphone. I haven't heard the voicemails, but my mother said he's threatening to beat me up if I contact him. I dated this guy for 3 months when I was a teenager, and we decided to stay good friends. The last time we spoke was in August 2023, and I just told him I wasn't interested in maintaining a friendship with him and that I wished him well. That same day, he left me a voicemail threatening to beat up my husband, and now my mom told me he had left her a voicemail threatening to beat me up if I contacted him. I haven't contacted him nor planned on doing so. I'm worried that he's still making threats months later and that he feels angry. He is very spiteful and a vengeful person, which contributed to the ending of our friendship. My mother saved the voicemails, and I did too. I don't feel safe whatsoever. I'm purchasing a handgun just in case, but I also want to go to the police. I have all of his information to file a report; I just don't want him to know my address. I'm afraid the report will be public, and he will come after me and my kids. Please help.",
     date: '2023-08-30T00:00:00',
     location: 'Victoria Place, London',
-    category: 'Domestic Voilence',
+    category: { id: 16, name: 'Domestic Voilence' },
     answers: [
       {
         answer_text:
@@ -32,7 +32,7 @@ export const QNA_DATA = [
       "If the victim of a domestic violence dispute told both the cops and the court they didn't want a protection order/ they didn't feel threatened, but they (Said the defendant couldn't have any contact) or they would get into more trouble, even if you never signed any paperwork for a protection order or agreed to it, does the order actually exist? Or is it just hearsay",
     location: 'Stoke-on-Trent, Staffordshire',
     date: '2023-09-02T00:00:00',
-    category: 'Domestic Voilence',
+    category: { id: 16, name: 'Domestic Voilence' },
     answers: [
       {
         answer_text:

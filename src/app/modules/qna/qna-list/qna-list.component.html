@@ -4,7 +4,10 @@
   </div>
   <div class="row">
     <div class="col-12 col-sm-12 col-md-9 col-lg-9">
-      <app-qna-search></app-qna-search>
+      <app-qna-search
+        (triggerSearch)="filterQnaList($event)"
+        (filterByCategory)="filterByCategory($event)"
+      ></app-qna-search>
     </div>
   </div>
   <div class="row">

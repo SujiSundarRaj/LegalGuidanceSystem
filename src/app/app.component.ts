@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     const currentUser = sessionStorage.getItem('currentUser');
+    console.log('currentUser ==> ', currentUser);
     if (currentUser) {
       this.userService.setCurrentUser(JSON.parse(currentUser) as User);
     }
