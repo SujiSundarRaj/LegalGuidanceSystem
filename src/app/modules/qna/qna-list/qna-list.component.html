@@ -60,7 +60,7 @@
                 </div>
                 <div
                   class="col-lg-2 save-lnk"
-                  *ngIf="currentUser$ | async as user"
+                  *ngIf="currentUser$ | async as user; else loginToSave"
                 >
                   <a
                     *ngIf="!isSaved(user, qnaData) && loggedIn"
@@ -75,6 +75,11 @@
                     <b>Unsave </b></a
                   >
                 </div>
+                <ng-template #loginToSave>
+                  <div class="col-lg-2 save-lnk">
+                    <a (click)="routeLoginToSave()"> <b>Save </b></a>
+                  </div>
+                </ng-template>
               </div>
               <hr />
             </div>

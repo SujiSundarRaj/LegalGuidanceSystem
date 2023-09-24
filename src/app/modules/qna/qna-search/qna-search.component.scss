@@ -49,6 +49,22 @@
       background: colors.$hover_button;
       color: colors.$hover_text;
     }
+    .clear-search-button {
+      width: 58%;
+      color: colors.$secondary_button_text;
+      background: colors.$secondar_button;
+      border-color: colors.$secondar_button_border;
+      margin-left: 3%;
+    }
+    button:hover {
+      background: colors.$hover_button;
+      color: colors.$hover_text;
+    }
+    .clear-search-button:hover {
+      background: colors.$secondary_hover_button;
+      color: colors.$secondary_hover_text;
+      border-color: colors.$secondar_button_border;
+    }
     .advance-search {
       margin-top: 25px;
       text-align: end;
@@ -59,4 +75,7 @@
   .no-padding {
     padding: 0px !important;
   }
+}
+.button-container{
+  display: flex;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { BehaviorSubject, Observable, combineLatest, map, tap } from 'rxjs';
 import { LAWAREA_DATA } from 'src/app/core/constants/lawarea-data';
@@ -105,7 +106,8 @@ export class QnaListComponent {
   constructor(
     private readonly qnaService: QnaService,
     private readonly userService: UserRegistrationService,
-    private readonly modalService: BsModalService
+    private readonly modalService: BsModalService,
+    private readonly router: Router
   ) {}
 
   askQuestion(): void {
@@ -117,6 +119,7 @@ export class QnaListComponent {
   }
 
   isSaved(user: User, qnaData: QnaModel): boolean {
+    console.log('user, ', user);
     return user.savedQna
       ? user.savedQna.some((savedQna) => savedQna === qnaData.id)
       : false;
@@ -178,5 +181,9 @@ export class QnaListComponent {
 
   clearRelatedTopic() {
     this.filterByRelatedTopic.next(undefined);
+  }
+
+  routeLoginToSave() {
+    this.router.navigate(['login']);
   }
 }
